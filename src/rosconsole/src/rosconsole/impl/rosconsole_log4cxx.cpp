@@ -367,6 +367,7 @@ void deregister_appender(LogAppender* appender){
     const log4cxx::LoggerPtr& logger = log4cxx::Logger::getLogger(ROSCONSOLE_ROOT_LOGGER_NAME);
     logger->removeAppender(g_log4cxx_appender);
     g_log4cxx_appender = log4cxx::AppenderPtr();
+  }
 }
 void shutdown()
 {
@@ -375,14 +376,14 @@ void shutdown()
     const log4cxx::LoggerPtr& logger = log4cxx::Logger::getLogger(ROSCONSOLE_ROOT_LOGGER_NAME);
     logger->removeAppender(g_log4cxx_appender);
     g_log4cxx_appender = log4cxx::AppenderPtr();
-    g_log4cxx_appender = log4cxx::AppenderPtr();
+  }
   // reset this so that the logger doesn't get crashily destroyed
   // again during global destruction.  
   //
   // See https://code.ros.org/trac/ros/ticket/3271
   //
   static_cast<log4cxx::spi::LoggerRepositoryPtr>(log4cxx::Logger::getRootLogger()->getLoggerRepository())->shutdown();
-  static_cast<log4cxx::spi::LoggerRepositoryPtr>(log4cxx::Logger::getRootLogger()->getLoggerRepository())->shutdown();
+}
 
 } // namespace impl
 } // namespace console
