@@ -119,7 +119,7 @@ LOG4CXX_PTR_DEF(TestAppenderWithThrow);
 BasicFilter g_filter(true);
 
 #define DEFINE_COND_TESTS(name, macro_base, level, log4cxx_level) \
-  TEST(RosConsole,name##Cond) \
+  TEST(RosConsole, name##Cond) \
   { \
     auto appender = TestAppenderPtr(new TestAppender); \
     log4cxx::Logger::getLogger(ROSCONSOLE_DEFAULT_NAME)->addAppender( appender ); \
@@ -130,7 +130,7 @@ BasicFilter g_filter(true);
     EXPECT_EQ(appender->info_[0].level_, log4cxx_level); \
     log4cxx::Logger::getLogger(ROSCONSOLE_DEFAULT_NAME)->removeAppender( appender ); \
   } \
-  TEST(RosConsole,name##Cond) \
+  TEST(RosConsole, name##NamedCond) \
   { \
     auto appender = TestAppenderPtr(new TestAppender); \
     log4cxx::Logger::getLogger(ROSCONSOLE_DEFAULT_NAME)->addAppender( appender ); \
@@ -142,7 +142,7 @@ BasicFilter g_filter(true);
     EXPECT_STREQ(appender->info_[0].logger_name_.c_str(), ROSCONSOLE_ROOT_LOGGER_NAME".rosconsole.test"); \
     log4cxx::Logger::getLogger(ROSCONSOLE_DEFAULT_NAME)->removeAppender( appender ); \
   } \
-  TEST(RosConsole,name##Cond) \
+  TEST(RosConsole, name##StreamCond) \
   { \
     auto appender = TestAppenderPtr(new TestAppender); \
     log4cxx::Logger::getLogger(ROSCONSOLE_DEFAULT_NAME)->addAppender( appender ); \
@@ -153,7 +153,7 @@ BasicFilter g_filter(true);
     EXPECT_EQ(appender->info_[0].level_, log4cxx_level); \
     log4cxx::Logger::getLogger(ROSCONSOLE_DEFAULT_NAME)->removeAppender( appender ); \
   } \
-  TEST(RosConsole,name##Cond) \
+  TEST(RosConsole, name##StreamCondNamed) \
   { \
     auto appender = TestAppenderPtr(new TestAppender); \
     log4cxx::Logger::getLogger(ROSCONSOLE_DEFAULT_NAME)->addAppender( appender ); \
@@ -167,7 +167,7 @@ BasicFilter g_filter(true);
   }
 
 #define DEFINE_ONCE_TESTS(name, macro_base, level, log4cxx_level) \
-  TEST(RosConsole,name##Cond) \
+  TEST(RosConsole, name##Once) \
   { \
     auto appender = TestAppenderPtr(new TestAppender); \
     log4cxx::Logger::getLogger(ROSCONSOLE_DEFAULT_NAME)->addAppender( appender ); \
@@ -177,7 +177,7 @@ BasicFilter g_filter(true);
     EXPECT_EQ(appender->info_[0].level_, log4cxx_level); \
     log4cxx::Logger::getLogger(ROSCONSOLE_DEFAULT_NAME)->removeAppender( appender ); \
   } \
-  TEST(RosConsole,name##Cond) \
+  TEST(RosConsole, name##NamedOnce) \
   { \
     auto appender = TestAppenderPtr(new TestAppender); \
     log4cxx::Logger::getLogger(ROSCONSOLE_DEFAULT_NAME)->addAppender( appender ); \
@@ -188,7 +188,7 @@ BasicFilter g_filter(true);
     EXPECT_STREQ(appender->info_[0].logger_name_.c_str(), ROSCONSOLE_ROOT_LOGGER_NAME".rosconsole.test"); \
     log4cxx::Logger::getLogger(ROSCONSOLE_DEFAULT_NAME)->removeAppender( appender ); \
   } \
-  TEST(RosConsole,name##Cond) \
+  TEST(RosConsole, name##StreamOnce) \
   { \
     auto appender = TestAppenderPtr(new TestAppender); \
     log4cxx::Logger::getLogger(ROSCONSOLE_DEFAULT_NAME)->addAppender( appender ); \
@@ -198,7 +198,7 @@ BasicFilter g_filter(true);
     EXPECT_EQ(appender->info_[0].level_, log4cxx_level); \
     log4cxx::Logger::getLogger(ROSCONSOLE_DEFAULT_NAME)->removeAppender( appender ); \
   } \
-  TEST(RosConsole,name##Cond) \
+  TEST(RosConsole, name##StreamOnceNamed) \
   { \
     auto appender = TestAppenderPtr(new TestAppender); \
     log4cxx::Logger::getLogger(ROSCONSOLE_DEFAULT_NAME)->addAppender( appender ); \
@@ -211,7 +211,7 @@ BasicFilter g_filter(true);
   }
 
 #define DEFINE_THROTTLE_TESTS(name, macro_base, level, log4cxx_level) \
-  TEST(RosConsole,name##Cond) \
+  TEST(RosConsole, name##Throttle) \
   { \
     auto appender = TestAppenderPtr(new TestAppender); \
     log4cxx::Logger::getLogger(ROSCONSOLE_DEFAULT_NAME)->addAppender( appender ); \
@@ -221,7 +221,7 @@ BasicFilter g_filter(true);
     EXPECT_EQ(appender->info_[0].level_, log4cxx_level); \
     log4cxx::Logger::getLogger(ROSCONSOLE_DEFAULT_NAME)->removeAppender( appender ); \
   } \
-  TEST(RosConsole,name##Cond) \
+  TEST(RosConsole, name##NamedThrottle) \
   { \
     auto appender = TestAppenderPtr(new TestAppender); \
     log4cxx::Logger::getLogger(ROSCONSOLE_DEFAULT_NAME)->addAppender( appender ); \
@@ -232,7 +232,7 @@ BasicFilter g_filter(true);
     EXPECT_STREQ(appender->info_[0].logger_name_.c_str(), ROSCONSOLE_ROOT_LOGGER_NAME".rosconsole.test"); \
     log4cxx::Logger::getLogger(ROSCONSOLE_DEFAULT_NAME)->removeAppender( appender ); \
   } \
-  TEST(RosConsole,name##Cond) \
+  TEST(RosConsole, name##StreamThrottle) \
   { \
     auto appender = TestAppenderPtr(new TestAppender); \
     log4cxx::Logger::getLogger(ROSCONSOLE_DEFAULT_NAME)->addAppender( appender ); \
@@ -242,7 +242,7 @@ BasicFilter g_filter(true);
     EXPECT_EQ(appender->info_[0].level_, log4cxx_level); \
     log4cxx::Logger::getLogger(ROSCONSOLE_DEFAULT_NAME)->removeAppender( appender ); \
   } \
-  TEST(RosConsole,name##Cond) \
+  TEST(RosConsole, name##StreamThrottleNamed) \
   { \
     auto appender = TestAppenderPtr(new TestAppender); \
     log4cxx::Logger::getLogger(ROSCONSOLE_DEFAULT_NAME)->addAppender( appender ); \
@@ -255,7 +255,7 @@ BasicFilter g_filter(true);
   }
 
 #define DEFINE_FILTER_TESTS(name, macro_base, level, log4cxx_level) \
-  TEST(RosConsole,name##Cond) \
+  TEST(RosConsole, name##Filter) \
   { \
     auto appender = TestAppenderPtr(new TestAppender); \
     log4cxx::Logger::getLogger(ROSCONSOLE_DEFAULT_NAME)->addAppender( appender ); \
@@ -265,7 +265,7 @@ BasicFilter g_filter(true);
     EXPECT_EQ(appender->info_[0].level_, log4cxx_level); \
     log4cxx::Logger::getLogger(ROSCONSOLE_DEFAULT_NAME)->removeAppender( appender ); \
   } \
-  TEST(RosConsole,name##Cond) \
+  TEST(RosConsole, name##NamedFilter) \
   { \
     auto appender = TestAppenderPtr(new TestAppender); \
     log4cxx::Logger::getLogger(ROSCONSOLE_DEFAULT_NAME)->addAppender( appender ); \
@@ -276,7 +276,7 @@ BasicFilter g_filter(true);
     EXPECT_STREQ(appender->info_[0].logger_name_.c_str(), ROSCONSOLE_ROOT_LOGGER_NAME".rosconsole.test"); \
     log4cxx::Logger::getLogger(ROSCONSOLE_DEFAULT_NAME)->removeAppender( appender ); \
   } \
-  TEST(RosConsole,name##Cond) \
+  TEST(RosConsole, name##StreamFilter) \
   { \
     auto appender = TestAppenderPtr(new TestAppender); \
     log4cxx::Logger::getLogger(ROSCONSOLE_DEFAULT_NAME)->addAppender( appender ); \
@@ -286,7 +286,7 @@ BasicFilter g_filter(true);
     EXPECT_EQ(appender->info_[0].level_, log4cxx_level); \
     log4cxx::Logger::getLogger(ROSCONSOLE_DEFAULT_NAME)->removeAppender( appender ); \
   } \
-  TEST(RosConsole,name##Cond) \
+  TEST(RosConsole, name##StreamFilterNamed) \
   { \
     auto appender = TestAppenderPtr(new TestAppender); \
     log4cxx::Logger::getLogger(ROSCONSOLE_DEFAULT_NAME)->addAppender( appender ); \
@@ -299,7 +299,7 @@ BasicFilter g_filter(true);
   }
 
 #define DEFINE_LEVEL_TESTS(name, macro_base, level, log4cxx_level) \
-  TEST(RosConsole,name##Cond) \
+  TEST(RosConsole, name) \
   { \
     auto appender = TestAppenderPtr(new TestAppender); \
     log4cxx::Logger::getLogger(ROSCONSOLE_DEFAULT_NAME)->addAppender( appender ); \
@@ -309,7 +309,7 @@ BasicFilter g_filter(true);
     EXPECT_EQ(appender->info_[0].level_, log4cxx_level); \
     log4cxx::Logger::getLogger(ROSCONSOLE_DEFAULT_NAME)->removeAppender( appender ); \
   } \
-  TEST(RosConsole,name##Cond) \
+  TEST(RosConsole, name##Named) \
   { \
     auto appender = TestAppenderPtr(new TestAppender); \
     log4cxx::Logger::getLogger(ROSCONSOLE_DEFAULT_NAME)->addAppender( appender ); \
@@ -320,7 +320,7 @@ BasicFilter g_filter(true);
     EXPECT_STREQ(appender->info_[0].logger_name_.c_str(), ROSCONSOLE_ROOT_LOGGER_NAME".rosconsole.test"); \
     log4cxx::Logger::getLogger(ROSCONSOLE_DEFAULT_NAME)->removeAppender( appender ); \
   } \
-  TEST(RosConsole,name##Cond) \
+  TEST(RosConsole, name##Stream) \
   { \
     auto appender = TestAppenderPtr(new TestAppender); \
     log4cxx::Logger::getLogger(ROSCONSOLE_DEFAULT_NAME)->addAppender( appender ); \
@@ -330,7 +330,7 @@ BasicFilter g_filter(true);
     EXPECT_EQ(appender->info_[0].level_, log4cxx_level); \
     log4cxx::Logger::getLogger(ROSCONSOLE_DEFAULT_NAME)->removeAppender( appender ); \
   } \
-  TEST(RosConsole,name##Cond) \
+  TEST(RosConsole, name##StreamNamed) \
   { \
     auto appender = TestAppenderPtr(new TestAppender); \
     log4cxx::Logger::getLogger(ROSCONSOLE_DEFAULT_NAME)->addAppender( appender ); \
@@ -354,7 +354,7 @@ DEFINE_LEVEL_TESTS(fatal, ROS_FATAL, ros::console::levels::Fatal, log4cxx::Level
 
 TEST(RosConsole, loggingLevels)
 {
-  log4cxx:LoggerPtr logger = log4cxx:Logger::getLogger(ROSCONSOLE_DEFAULT_NAME);
+  log4cxx::LoggerPtr logger = log4cxx::Logger::getLogger(ROSCONSOLE_DEFAULT_NAME);
 
   auto appender = TestAppenderPtr(new TestAppender);
   logger->addAppender( appender );
@@ -575,7 +575,7 @@ TEST(RosConsole, loggingLevels)
 
 TEST(RosConsole, changingLevel)
 {
-  log4cxx:LoggerPtr logger = log4cxx:Logger::getLogger(ROSCONSOLE_DEFAULT_NAME);
+  log4cxx::LoggerPtr logger = log4cxx::Logger::getLogger(ROSCONSOLE_DEFAULT_NAME);
 
   auto appender = TestAppenderPtr(new TestAppender);
   logger->addAppender( appender );
@@ -595,7 +595,7 @@ TEST(RosConsole, changingLevel)
 
 TEST(RosConsole, changingLoggerLevel)
 {
-  log4cxx:LoggerPtr logger = log4cxx:Logger::getLogger(ROSCONSOLE_DEFAULT_NAME);
+  log4cxx::LoggerPtr logger = log4cxx::Logger::getLogger(ROSCONSOLE_DEFAULT_NAME);
 
   auto appender = TestAppenderPtr(new TestAppender);
   logger->addAppender( appender );
@@ -629,7 +629,7 @@ TEST(RosConsole, changingLoggerLevel)
 
 TEST(RosConsole, longPrintfStyleOutput)
 {
-  log4cxx:LoggerPtr logger = log4cxx:Logger::getLogger(ROSCONSOLE_DEFAULT_NAME);
+  log4cxx::LoggerPtr logger = log4cxx::Logger::getLogger(ROSCONSOLE_DEFAULT_NAME);
 
   auto appender = TestAppenderPtr(new TestAppender);
   logger->addAppender( appender );
@@ -652,7 +652,7 @@ TEST(RosConsole, longPrintfStyleOutput)
 
 TEST(RosConsole, throwingAppender)
 {
-  log4cxx:LoggerPtr logger = log4cxx:Logger::getLogger(ROSCONSOLE_DEFAULT_NAME);
+  log4cxx::LoggerPtr logger = log4cxx::Logger::getLogger(ROSCONSOLE_DEFAULT_NAME);
 
   auto appender = TestAppenderWithThrowPtr(new TestAppenderWithThrow);
   logger->addAppender( appender );
@@ -677,7 +677,7 @@ void onceFunc()
 
 TEST(RosConsole, once)
 {
-  log4cxx:LoggerPtr logger = log4cxx:Logger::getLogger(ROSCONSOLE_DEFAULT_NAME);
+  log4cxx::LoggerPtr logger = log4cxx::Logger::getLogger(ROSCONSOLE_DEFAULT_NAME);
 
   auto appender = TestAppenderPtr(new TestAppender);
   logger->addAppender(appender);
@@ -697,7 +697,7 @@ void throttleFunc()
 
 TEST(RosConsole, throttle)
 {
-  log4cxx:LoggerPtr logger = log4cxx:Logger::getLogger(ROSCONSOLE_DEFAULT_NAME);
+  log4cxx::LoggerPtr logger = log4cxx::Logger::getLogger(ROSCONSOLE_DEFAULT_NAME);
 
   auto appender = TestAppenderPtr(new TestAppender);
   logger->addAppender(appender);
@@ -728,7 +728,7 @@ void delayedThrottleFunc2()
 
 TEST(RosConsole, delayedThrottle)
 {
-  log4cxx:LoggerPtr logger = log4cxx:Logger::getLogger(ROSCONSOLE_DEFAULT_NAME);
+  log4cxx::LoggerPtr logger = log4cxx::Logger::getLogger(ROSCONSOLE_DEFAULT_NAME);
 
   auto appender = TestAppenderPtr(new TestAppender);
   logger->addAppender(appender);
@@ -765,7 +765,7 @@ void onceStreamFunc()
 
 TEST(RosConsole, onceStream)
 {
-  log4cxx:LoggerPtr logger = log4cxx:Logger::getLogger(ROSCONSOLE_DEFAULT_NAME);
+  log4cxx::LoggerPtr logger = log4cxx::Logger::getLogger(ROSCONSOLE_DEFAULT_NAME);
 
   auto appender = TestAppenderPtr(new TestAppender);
   logger->addAppender(appender);
@@ -785,7 +785,7 @@ void throttleStreamFunc()
 
 TEST(RosConsole, throttleStream)
 {
-  log4cxx:LoggerPtr logger = log4cxx:Logger::getLogger(ROSCONSOLE_DEFAULT_NAME);
+  log4cxx::LoggerPtr logger = log4cxx::Logger::getLogger(ROSCONSOLE_DEFAULT_NAME);
 
   auto appender = TestAppenderPtr(new TestAppender);
   logger->addAppender(appender);
@@ -816,7 +816,7 @@ void delayedThrottleStreamFunc2()
 
 TEST(RosConsole, delayedStreamThrottle)
 {
-  log4cxx:LoggerPtr logger = log4cxx:Logger::getLogger(ROSCONSOLE_DEFAULT_NAME);
+  log4cxx::LoggerPtr logger = log4cxx::Logger::getLogger(ROSCONSOLE_DEFAULT_NAME);
 
   auto appender = TestAppenderPtr(new TestAppender);
   logger->addAppender(appender);
@@ -847,7 +847,7 @@ TEST(RosConsole, delayedStreamThrottle)
 
 TEST(RosConsole, basicFilter)
 {
-  log4cxx:LoggerPtr logger = log4cxx:Logger::getLogger(ROSCONSOLE_DEFAULT_NAME);
+  log4cxx::LoggerPtr logger = log4cxx::Logger::getLogger(ROSCONSOLE_DEFAULT_NAME);
 
   auto appender = TestAppenderPtr(new TestAppender);
   logger->addAppender(appender);
@@ -864,7 +864,7 @@ TEST(RosConsole, basicFilter)
 
 TEST(RosConsole, basicFilterStream)
 {
-  log4cxx:LoggerPtr logger = log4cxx:Logger::getLogger(ROSCONSOLE_DEFAULT_NAME);
+  log4cxx::LoggerPtr logger = log4cxx::Logger::getLogger(ROSCONSOLE_DEFAULT_NAME);
 
   auto appender = TestAppenderPtr(new TestAppender);
   logger->addAppender(appender);
@@ -900,7 +900,7 @@ struct AdvancedFilter : public ros::console::FilterBase
 
 TEST(RosConsole, advancedFilter)
 {
-  log4cxx:LoggerPtr logger = log4cxx:Logger::getLogger(ROSCONSOLE_DEFAULT_NAME);
+  log4cxx::LoggerPtr logger = log4cxx::Logger::getLogger(ROSCONSOLE_DEFAULT_NAME);
 
   auto appender = TestAppenderPtr(new TestAppender);
   logger->addAppender(appender);
@@ -919,7 +919,7 @@ TEST(RosConsole, advancedFilter)
 
 TEST(RosConsole, advancedFilterStream)
 {
-  log4cxx:LoggerPtr logger = log4cxx:Logger::getLogger(ROSCONSOLE_DEFAULT_NAME);
+  log4cxx::LoggerPtr logger = log4cxx::Logger::getLogger(ROSCONSOLE_DEFAULT_NAME);
 
   auto appender = TestAppenderPtr(new TestAppender);
   logger->addAppender(appender);
@@ -949,7 +949,7 @@ struct ChangeFilter : public ros::console::FilterBase
 
 TEST(RosConsole, changeFilter)
 {
-  log4cxx:LoggerPtr logger = log4cxx:Logger::getLogger(ROSCONSOLE_DEFAULT_NAME);
+  log4cxx::LoggerPtr logger = log4cxx::Logger::getLogger(ROSCONSOLE_DEFAULT_NAME);
 
   auto appender = TestAppenderPtr(new TestAppender);
   logger->addAppender(appender);
@@ -966,7 +966,7 @@ TEST(RosConsole, changeFilter)
 
 TEST(RosConsole, changeFilterStream)
 {
-  log4cxx:LoggerPtr logger = log4cxx:Logger::getLogger(ROSCONSOLE_DEFAULT_NAME);
+  log4cxx::LoggerPtr logger = log4cxx::Logger::getLogger(ROSCONSOLE_DEFAULT_NAME);
 
   auto appender = TestAppenderPtr(new TestAppender);
   logger->addAppender(appender);
