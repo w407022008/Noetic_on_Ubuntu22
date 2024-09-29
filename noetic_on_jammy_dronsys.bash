@@ -31,7 +31,7 @@ rosdep update
 	# Option 2 - from rosdep
 	mkdir ~/noetic && cd noetic
 	mkdir ./src
-	rosinstall_generator ros_base tf2_ros tf2_eigen tf_conversions random_numbers mavros_msgs mavros mavros_extras tf cv_bridge pcl_ros octomap octomap_msgs image_transport image_transport_plugins ddynamic_reconfigure vrpn_client_ros roslint --rosdistro noetic --deps --tar > noetic-dronesys.rosinstall
+	rosinstall_generator ros_base tf2_ros tf2_eigen tf2_geometry_msgs tf_conversions random_numbers mavros_msgs mavros mavros_extras tf cv_bridge pcl_ros octomap octomap_msgs image_transport image_transport_plugins ddynamic_reconfigure vrpn_client_ros roslint --rosdistro noetic --deps --tar > noetic-dronesys.rosinstall
 	vcs import --input noetic-dronesys.rosinstall ./src
 	rosdep install --from-paths ./src --ignore-packages-from-source --rosdistro noetic -y
 	# modification to adapt to jammy
