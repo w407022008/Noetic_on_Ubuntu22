@@ -27,6 +27,8 @@ rosdep update
 	git clone https://github.com/w407022008/Noetic_on_Ubuntu22.git noetic
 	sudo -H apt install -y python3-numpy libboost-all-dev libopencv-dev python3-opencv libboost-date-time-dev libboost-filesystem-dev libboost-program-options-dev libboost-regex-dev libboost-thread-dev python3-pycryptodome python3-gnupg python3-rospkg sbcl libboost-dev libboost-thread1.74.0 libgtest-dev libeigen3-dev libgeographic-dev geographiclib-tools libboost-system-dev libconsole-bridge-dev libpoco-dev liblz4-dev liburdfdom-headers-dev liburdfdom-dev libtinyxml-dev libtinyxml2-dev graphviz python3-empy python3-paramiko liborocos-kdl-dev liborocos-kdl1.5 python3-pykdl cmake python3-mock python3-nose python3-catkin-pkg google-mock libpcl-dev libbz2-dev libgpgme-dev libboost-chrono-dev python3-defusedxml python3-coverage python3-lxml python3-future libapr1-dev libaprutil1-dev liblog4cxx-dev libogg-dev libtheora-dev 
 	## make sure python as python3
+	#sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 100
+	#sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 150
 
 	# Option 2 - from rosdep
 	mkdir ~/noetic && cd noetic
@@ -37,7 +39,6 @@ rosdep update
 	# modification to adapt to jammy
 	curl https://raw.githubusercontent.com/w407022008/Noetic_on_Ubuntu22/master/Ubuntu22_dependency_modification.bash | bash
 	
-
 ## 4\ build & install noetic packages
 ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release 
 
