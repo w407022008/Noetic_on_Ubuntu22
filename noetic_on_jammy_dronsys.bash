@@ -23,9 +23,9 @@ rosdep update
 
 ## 3\ download ros-noetic packages
 
-	# Option 1 - from github (ofcourse it has been cloned)
+	# Option 1 - from github (recommanded if use DroneSys)
 	git clone https://github.com/w407022008/Noetic_on_Ubuntu22.git noetic
-	sudo -H apt install -y python3-numpy libboost-all-dev libopencv-dev python3-opencv libboost-date-time-dev libboost-filesystem-dev libboost-program-options-dev libboost-regex-dev libboost-thread-dev python3-pycryptodome python3-gnupg python3-rospkg sbcl libboost-dev libboost-thread1.74.0 libgtest-dev libeigen3-dev libgeographic-dev geographiclib-tools libboost-system-dev libconsole-bridge-dev libpoco-dev liblz4-dev liburdfdom-headers-dev liburdfdom-dev libtinyxml-dev libtinyxml2-dev graphviz python3-empy python3-paramiko liborocos-kdl-dev liborocos-kdl1.5 python3-pykdl cmake python3-mock python3-nose python3-catkin-pkg google-mock libpcl-dev libbz2-dev libgpgme-dev libboost-chrono-dev python3-defusedxml python3-coverage python3-lxml python3-future libapr1-dev libaprutil1-dev liblog4cxx-dev libogg-dev libtheora-dev 
+	sudo -H apt install -y python3-numpy libboost-all-dev libopencv-dev python3-opencv libboost-date-time-dev libboost-filesystem-dev libboost-program-options-dev libboost-regex-dev libboost-thread-dev python3-pycryptodome python3-gnupg python3-rospkg sbcl libboost-dev libboost-thread1.74.0 libgtest-dev libeigen3-dev libgeographic-dev geographiclib-tools libboost-system-dev libconsole-bridge-dev libpoco-dev liblz4-dev liburdfdom-headers-dev liburdfdom-dev libtinyxml-dev libtinyxml2-dev graphviz python3-empy python3-paramiko liborocos-kdl-dev liborocos-kdl1.5 python3-pykdl cmake python3-mock python3-nose python3-catkin-pkg google-mock libpcl-dev libbz2-dev libgpgme-dev libboost-chrono-dev python3-defusedxml python3-coverage python3-lxml python3-future libapr1-dev libaprutil1-dev liblog4cxx-dev libogg-dev libtheora-dev libturbojpeg0-dev
 	## make sure python as python3
 	#sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 100
 	#sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 150
@@ -69,3 +69,5 @@ sudo mkdir /opt/ros
 sudo cp -r /install_isolated /opt/ros/noetic
 
 rm -r tmp
+echo "source ~/src/noetic/install_isolated/setup.bash" >> ~/.bashrc
+source ~/.bashrc
